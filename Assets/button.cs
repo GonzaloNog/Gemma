@@ -21,10 +21,14 @@ public class button : MonoBehaviour
             switch (comand)
             {
                 case "barrera":
-                    GameManager.instance.ChangeBarrera();
+                    if(!GameManager.instance.GetDoor() && !GameManager.instance.GetIntent())
+                        GameManager.instance.ChangeBarrera();
                     break;
                 case "puerta":
-                    GameManager.instance.ChangePuerta();
+                    if (GameManager.instance.GetTanca())
+                        GameManager.instance.ChangePuerta();
+                    else
+                        GameManager.instance.SetIntent(true);
                     break;
             }
         }
