@@ -32,8 +32,9 @@ public class Plataform : MonoBehaviour
         // Mueve el objeto hacia la nueva posici�n
         transform.position = newPosition;
 
+
+        //cambio target
         float distance = Vector3.Distance(this.transform.position, targetObject.transform.position);
-        Debug.Log(maxDistance);
         if (distance < 0.2f)
             ChangeTarger();
     }
